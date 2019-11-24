@@ -322,35 +322,31 @@ def correct_file_size(num):
     	if num < 1024.0:
     		return "%3.1f %s" % (num, x)
     	num /= 1024.0
-    	return num
 # =============================================================================
 # Name:       get_hashing_status(file_path, list_end)
 # Purpose:    Displays formatted console output showing number of files discovered.
 # =============================================================================
-def display_hashing_status(hashed_file_data, list_end):
+def display_hashing_status(hashing_file_data, list_end):
 	global _last_output_length
 
-	if(hashed_file_data[2] == "Size"):
-		pass
-	else:
-		file_name = hashed_file_data[1]
-		file_size = correct_file_size(int(hashed_file_data[2]))
-		# Shortens the name to 40 characters
-		file_name = file_name[:40]
+	file_name = hashing_file_data[1]
+	file_size = correct_file_size(int(hashing_file_data[2]))
+	# Shortens the name to 40 characters
+	file_name = file_name[:40]
 
-		if(list_end):
-			print("{:<2}{:<8}{:<5}{:<1}{:<8}{:<6}{:<10}{:<6}{:<10}".format('',"Hashing",_hashed_files_count+1,"/",_discovered_files_count, "Size:", file_size,"Name: ",str(file_name)))
-			print("{:<2}{:<25}".format('','======================================================================='))
-		else:
-			# Add +1 if this doesn't work correctly
-			text = ("\r{:<2}{:<8}{:<5}{:<1}{:<8}{:<6}{:<10}{:<6}{:<10}".format('',"Hashing",_hashed_files_count+1,"/",_discovered_files_count, "Size:", file_size,"Name: ",str(file_name)))
-			# If previous entry was longer, clear the entry
-			if (_last_output_length > len(text)):
-				print(" "*_last_output_length,end='\r')
-			# Display current entry
-			print (text,end='\r')
-			# Update last entry length
-			_last_output_length = len(text)
+	if(list_end):
+		print("{:<2}{:<8}{:<5}{:<1}{:<8}{:<6}{:<10}{:<6}{:<10}".format('',"Hashing",_hashed_files_count,"/",_discovered_files_count-1, "Size:", file_size,"Name: ",str(file_name)))
+		print("{:<2}{:<25}".format('','======================================================================='))
+	else:
+		# Add +1 if this doesn't work correctly
+		text = ("\r{:<2}{:<8}{:<5}{:<1}{:<8}{:<6}{:<10}{:<6}{:<10}".format('',"Hashing",_hashed_files_count,"/",_discovered_files_count-1, "Size:", file_size,"Name: ",str(file_name)))
+		# If previous entry was longer, clear the entry
+		if (_last_output_length > len(text)):
+			print(" "*_last_output_length,end='\r')
+		# Display current entry
+		print (text,end='\r')
+		# Update last entry length
+		_last_output_length = len(text)
 # =============================================================================
 # Name:       file_hashed_saving()
 # Purpose:    Saves list of hashed files to a file 'hashed_files.csv'
@@ -364,9 +360,6 @@ def file_hashed_saving(hashed_file_data):
 		writer = csv.writer(f)
 		#writer.writerows(discovered_file_data)
 		writer.writerow(hashed_file_data)
-		# Print  Hashing Status - 
-		end_of_file = (_hashed_files_count+1==_discovered_files_count)
-		display_hashing_status(hashed_file_data, end_of_file)
 	_hashed_files_count += 1
 # =============================================================================
 # Name:       convert_bytes(num)
@@ -457,6 +450,7 @@ def file_hasher():
 	with open(discovered_list_path, newline='') as csvfile:
 		reader = csv.DictReader(csvfile)
 		#current_csv_position = 0
+
 		for row in reader:
 			_Location = row['Location']
 			_Name = row['Name']
@@ -467,6 +461,10 @@ def file_hasher():
 			file_hash = ""
 
 			if _Hash == "":
+				# Print  Hashing Status - important to display hashing before file is actually hashed
+				end_of_file = (_hashed_files_count + 1 == _discovered_files_count)
+				display_hashing_status([_Location,_Name,_Size,_Created,_Modified,file_hash], end_of_file)
+
 				#If hash value is empty then proceed with hashing
 				file_path = os.path.join(_Location,_Name)
 				#file_hash = hash_file(file_path)
