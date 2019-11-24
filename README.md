@@ -14,6 +14,7 @@ Hashes could be displayed on the screen or saved to a .txt file
 **[HashPy V3]** Third itteration of the project worked on saving data into more accessible format.
 
 **[HashPy V4]** Fourth itteration of the project changed directions in the way that data was saved and entire list of files and hashed files was now stored in .csv format.
+
 Features:
 - Discovers and saves location for all valid files in target location before attempting to hash them.
 - Saves metadata like ["Location", "Name", "Size","Created","Modified","Hash"] which will be used for sorting and finding duplicates.
