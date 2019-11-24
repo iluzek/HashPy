@@ -18,7 +18,7 @@ Hashes could be displayed on the screen or saved to a .txt file
 
 Features:
 - Discovers and saves location for all valid files in target location before attempting to hash them.
-- Saves metadata like ["Location", "Name", "Size","Created","Modified","Hash"] which will be used for sorting and finding duplicates.
+- Saves metadata like ["Location", "Name", "Size","Created","Modified","Hash"] which will be used (in future) for sorting and finding duplicates.
 - Hashed files are saved one by one to the list with already hashed files.
 - Able to resume progress if target location is pointed to the configuration file.
 
