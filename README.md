@@ -5,6 +5,7 @@ HashPy - Generating Hash Values into .csv file
 **[HashPy V1]** Project started as simple tool for hashing files and while other tools are available that they did not handle well:
 - hashing large number of files
 - displaying status of the hashing
+
 Hashes could be displayed on the screen or saved to a .txt file
 
 **[HashPy V2]** Second itteration of the project allowed for:
