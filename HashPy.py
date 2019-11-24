@@ -14,7 +14,7 @@ session_main_dir			=	"Sessions"					# Sessions directory name
 session_config_dir			=	"config"					# Session config directory
 session_results_dir			=	"results"					# Session results directory
 session_config_file			=	"hashpy.config"				# Session config file
-session_discovered_list		=	"discovered_files.csv"		# List of discovered files
+session_discovered_list			=	"discovered_files.csv"		# List of discovered files
 session_hashed_list			=	"hashed_files.csv"			# List with hashed files
 # =============================================================================
 config_dir_path = os.path.join(session_local_path,session_main_dir,session_datetime,session_config_dir)
