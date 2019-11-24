@@ -1,0 +1,12 @@
+Output options:
+1.Allow for switch to output list of hashes into .txt or console after scan is complete (console might not display all results)
+2.Allow for addition of whitelist or blacklist for files to be ignored when scanning/hashing.
+---Could be useful when looking for changes into system directories or others.
+
+
+
+
+Debugging:
+1.Test if symlinks work
+--https://pastebin.com/u9ef9f9B
+--figure out why it failed at 'supposed symlinks'
