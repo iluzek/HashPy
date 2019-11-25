@@ -8,13 +8,13 @@ HashPy - Generating Hash Values into .csv file
 
 Hashes could be displayed on the screen or saved to a .txt file
 
-**[HashPy V2]** Second itteration of the project allowed for:
+**[HashPy V2]** Second iteration of the project allowed for:
 - Handling interruptions to the hashing process
 - Resuming the hashing process
 
-**[HashPy V3]** Third itteration of the project worked on saving data into more accessible format.
+**[HashPy V3]** Third iteration of the project worked on saving data into more accessible format.
 
-**[HashPy V4]** Fourth itteration of the project changed directions in the way that data was saved and entire list of files and hashed files was now stored in .csv format.
+**[HashPy V4]** Fourth iteration of the project changed directions in the way that data was saved and entire list of files and hashed files was now stored in .csv format.
 
 Features:
 - Discovers and saves location for all valid files in target location before attempting to hash them.
