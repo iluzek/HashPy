@@ -10,3 +10,5 @@ Debugging:
 1.Test if symlinks work
 --https://pastebin.com/u9ef9f9B
 --figure out why it failed at 'supposed symlinks'
+
+- Implement fix with def get_file_info(file_path): " elif(os.path.islink(filepath))
