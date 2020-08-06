@@ -12,3 +12,7 @@ Debugging:
 --figure out why it failed at 'supposed symlinks'
 
 - Implement fix with def get_file_info(file_path): " elif(os.path.islink(filepath))
+
+-- Implement error logging
+
+-- Implement/develop session.log before file discovery (check viability)
